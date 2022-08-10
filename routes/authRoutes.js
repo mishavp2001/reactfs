@@ -6,7 +6,7 @@ module.exports = (app) => {
         scope: ['profile', 'email']
     }));
     
-    app.get('/auth/google/callback', passport.authenticate('google'));
+    app.get('https://fierce-thicket-67604.herokuapp.com//auth/google/callback', passport.authenticate('google'));
 
     app.get('/api/logout', (req, res)=> {
         const user = req.user
