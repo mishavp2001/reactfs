@@ -4,6 +4,7 @@ const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const { dirname } = require('path');
 
 require('./models/User');
 require('./services/passport');
@@ -24,6 +25,18 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+
+
+if(process.env.NODE_ENV = 'production') {
+    //Express will send client side js/css
+    app.use(express.static('client/build'));
+
+    //Express will serve index.tml from static if unknown route
+    const path = require('path');
+    app.get('*', (req, resp) => {
+        resp.sendFile(path.resolve(--dirname, 'client', 'build', 'index.html'));
+    })
+}
 
 const PORT = process.env.PORT || 5001;
 
