@@ -5,10 +5,10 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Login from './Login';
+import Landing from './Landing';
 
 const Dashboard = () =>   <div className="card-panel lighten-2"><h2>Dashboard</h2></div>;
 const SurveyNew = () => <div className="card-panel lighten-2"><h2>Survey New</h2></div>;
-const Landing = () => <div className="card-panel lighten-2"><h2>Landing</h2></div>;
 
 class App extends Component {
   componentDidMount() {
@@ -24,7 +24,7 @@ class App extends Component {
             <Route exact path={'/'} component = {Landing}/>
             <Route exact path={'/surveys'} component = {Dashboard} />
             <Route exact path={'/login'} component = {Login} />
-            <Route path={'/survey/new'} component = {SurveyNew} />
+            <Route exact path={'/survey/new'} component = {SurveyNew} />
           </div>
         </BrowserRouter>
       </div>

@@ -18,3 +18,5 @@ ReactDOM.render(
         <App />
     </Provider>,
     document.querySelector("#root"));
+
+    console.log('STRPE is: ', process.env.REACT_APP_STRIPE_KEY);
