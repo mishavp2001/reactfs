@@ -34,7 +34,7 @@ if(process.env.NODE_ENV = 'production') {
     //Express will serve index.tml from static if unknown route
     const path = require('path');
     app.get('*', (req, resp) => {
-        resp.sendFile(path.resolve(--dirname, 'client', 'build', 'index.html'));
+        resp.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     })
 }
 
