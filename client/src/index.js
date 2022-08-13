@@ -5,11 +5,13 @@ import {Provider} from 'react-redux';
 import {applyMiddleware} from 'redux';
 import reduxThunk from 'redux-thunk';
 
+import App from "./components/App"
 import { legacy_createStore as createStore} from 'redux'
 import reducers from "./reducers";
 
+import axios from 'axios';
+window.axios = axios;
 
-import App from "./components/App"
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
